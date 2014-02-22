@@ -7,7 +7,7 @@ RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt
 # Update the package repository
 RUN apt-get -q update && apt-get upgrade -q -y --force-yes
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -q -y locales
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -q -y locales wget
 
 # Configure timezone and locale
 RUN echo "Europe/Paris" > /etc/timezone; dpkg-reconfigure -f noninteractive tzdata
