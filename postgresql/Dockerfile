@@ -13,8 +13,8 @@ RUN apt-get -qqy install postgresql-$PG_VERSION postgresql-contrib-$PG_VERSION
 
 ADD postgresql.conf etc/postgresql/$PG_VERSION/main/postgresql.conf
 ADD pg_hba.conf etc/postgresql/$PG_VERSION/main/pg_hba.conf
-ADD start.sh start.sh
+ADD run_postgresql.sh run_postgresql.sh
 
 EXPOSE 5432
 RUN rm /usr/sbin/policy-rc.d
-CMD ["/start.sh"]
+CMD ["/run_postgresql.sh"]
